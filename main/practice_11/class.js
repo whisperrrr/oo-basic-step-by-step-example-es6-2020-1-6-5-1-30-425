@@ -10,7 +10,7 @@ class Class {
     if (student.klass.number === this.number) {
       this.leader = student;
       if (this.teacher) {
-        console.log("I am " + this.teacher.name + " I know " + student.name + " become Leader of Class " + this.number + ".");
+        return "I am " + this.teacher.name + " I know " + student.name + " become Leader of Class " + this.number + ".";
       }
     }
     else {
@@ -20,7 +20,7 @@ class Class {
   appendMember(student) {
     student.klass = this;
     if (this.teacher) {
-      console.log("I am " + this.teacher.name + " I know " + student.name + " has joined Class " + this.number + ".");
+      return "I am " + this.teacher.name + " I know " + student.name + " has joined Class " + this.number + ".";
     }
   }
   isIn(student) {
@@ -30,10 +30,10 @@ class Class {
     return false;
   }
   registerAssignLeaderListener(teacher) {
-    return this.teacher = teacher;
+    this.teacher = teacher;
   }
   registerJoinListener(teacher) {
-    return this.teacher = teacher;
+    this.teacher = teacher;
   }
 }
 export default Class;

@@ -25,9 +25,6 @@ class Teacher extends Person {
     }
     return false;
   }
-  listen() {
-    console.log("in");
-  }
 }
 
 function getClassNumber(klasses) {

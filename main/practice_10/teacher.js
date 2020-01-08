@@ -17,6 +17,14 @@ class Teacher extends Person {
       return super.introduce() + " I am a Teacher. "+ "I teach No Class.";
     }   
   }
+  isTeaching(student) {
+    for (let klass of this.klasses) {
+      if (klass.isIn(student)) {
+        return true;
+      }
+    }
+    return false;
+  }
 }
 
 function getClassNumber(klasses) {
