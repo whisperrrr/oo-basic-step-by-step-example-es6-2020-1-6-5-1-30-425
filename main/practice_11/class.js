@@ -20,12 +20,8 @@ class Class {
   }
   appendMember(student) {
     student.klass = this;
-    // if (this.teacher && inSameClass(this.teacher,student)) {
-    //   console.log("I am " + this.teacher.name + " I know " + student.name + " has joined Class " + student.klass.number + ".");
-    // }
-    if (this.teacher && (this.teacher.klasses[0] === student.klass 
-      || this.teacher.klasses[1] === student.klass)) {
-      console.log("I am " + this.teacher.name + ". I know " + student.name + " has joined Class " + student.klass.number + ".")
+    if (this.teacher && inSameClass(this.teacher,student)) {
+      console.log("I am " + this.teacher.name + " I know " + student.name + " has joined Class " + student.klass.number + ".");
     }
   }
   isIn(student) {
