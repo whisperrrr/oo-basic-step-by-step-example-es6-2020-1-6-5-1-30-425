@@ -9,8 +9,9 @@ class Class {
   assignLeader(student) {
     if (student.klass.number === this.number) {
       this.leader = student;
-      if (this.teacher) {
-        return "I am " + this.teacher.name + " I know " + student.name + " become Leader of Class " + this.number + ".";
+      //看这个班有没有teacher,再看leader的班级在不在这个老师的班级内
+      if (this.teacher && inSameClass(this.teacher,student)) {
+        console.log("I am " + this.teacher.name + ". I know " + student.name + " become Leader of Class " + student.klass.number + ".")
       }
     }
     else {
@@ -19,8 +20,12 @@ class Class {
   }
   appendMember(student) {
     student.klass = this;
-    if (this.teacher) {
-      return "I am " + this.teacher.name + " I know " + student.name + " has joined Class " + this.number + ".";
+    // if (this.teacher && inSameClass(this.teacher,student)) {
+    //   console.log("I am " + this.teacher.name + " I know " + student.name + " has joined Class " + student.klass.number + ".");
+    // }
+    if (this.teacher && (this.teacher.klasses[0] === student.klass 
+      || this.teacher.klasses[1] === student.klass)) {
+      console.log("I am " + this.teacher.name + ". I know " + student.name + " has joined Class " + student.klass.number + ".")
     }
   }
   isIn(student) {
@@ -35,5 +40,13 @@ class Class {
   registerJoinListener(teacher) {
     this.teacher = teacher;
   }
+}
+function inSameClass(teacher,student) {
+  for (let klass of teacher.klasses) {
+    if (student.klass.number === klass.number) {
+      return true;
+    }
+  }
+  return false;
 }
 export default Class;
